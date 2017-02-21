@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Blank Hospital View</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body class="text-center text-muted bg-primary" style="background-image:url('Images/home-banner-lg.jpg');">
+        <div class="container">
+</div>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="AlphaDep.html">
+                    <img src="Images/analytics-white.png" width="200" />
+                </a>                 
+            </div>
+            <div class="col-md-4">
+                <h3>AlphaDep - Hospital View</h3> 
+            </div>
+            <img scr="images" analytics>
+            <div class="col-md-3"> 
+</div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>General Medicine</h3>
+                    <a href="Wards.html">
+                        <!DOCTYPE html>
+                        <style>
+                            .axis .domain {
+                            display: none;
+                            }
+</style>
+                        <svg width="400" height="200"></svg>
+                        <script src="https://d3js.org/d3.v4.min.js"></script>
+                        <script>
+/console.log("REMAP---------------------------");
+var remapped =data[0].map(function(dat,i){
+    return data.map(function(d,ii){
+        return {x: ii, y: d[i] };
+    })
+});
+
+
+var w = 200,
+h = 200
+
+// create canvas
+var svg = d3.select(".chart").append("svg:svg")
+.attr("width", w)
+.attr("height", h )
+.append("svg:g")
+.attr("transform", "translate(0,"+h+")");
+
+var x = d3.scale.ordinal().rangeRoundBands([0, w], 0.5)
+var y = d3.scale.linear().range([0, h])
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]).domain(data[0].map(function(d,i){return i;}));
+
+
+
+//console.log("LAYOUT---------------------------");
+var stacked = d3.layout.stack()(remapped)
+//console.log(stacked)
+
+x.domain(stacked[0].map(function(d) { return d.x; }));
+y.domain([0, d3.max(stacked[stacked.length - 1], function(d) { return d.y0 + d.y; })]);
+
+// show the domains of the scales              
+console.log("x.domain(): " + x.domain())
+console.log("y.domain(): " + y.domain())
+
+
+// Add a group for each column.
+var valgroup = svg.selectAll("g.valgroup")
+.data(stacked)
+.enter().append("svg:g")
+.attr("class", "valgroup")
+.style("fill", function(d, i) { return color(i); })
+.style("stroke", function(d, i) { return d3.rgb(color(i)).darker(); });
+
+// Add a rect for each date.
+var rect = valgroup.selectAll("rect")
+.data(function(d){return d;})
+.enter().append("svg:rect")
+.attr("x", function(d) { return x(d.x); })
+.attr("y", function(d) { return -y(d.y0) - y(d.y); })
+.attr("height", function(d) { return y(d.y); })
+.attr("width", x.rangeBand());
+
+</script>
+                        <span class="label label-default">Weighted Score: 1410</span>
+                    </a>                     
+                    <img src>
+                </div>
+                <div class="col-md-4">
+                    <h3>Women and Children</h3> 
+                    <img src="Images/WomenAndChildren.png" width="300" />
+                    <span class="label label-default">Weighted Score: 1000</span> 
+                </div>
+                <div class="col-md-4">
+                    <h3>Surgery</h3> 
+                    <img src="Images/surgery.png" width="300" />
+                    <span class="label label-default">Weighted Score: 800</span> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Elderley</h3>
+                    <img src="Images/Elderley.png" width="300" />
+                    <span class="label label-default">Weighted Score: 850</span> 
+                </div>
+                <div class="col-md-4">
+                    <h3>Oncology</h3> 
+                    <img src="Images/Oncology.png" width="300" />
+                    <span class="label label-default">Weighted Score: 1250</span> 
+                </div>
+                <div class="col-md-4">
+                    <h3>Unscheuled</h3>
+                    <img src="Images/Unsheduled.png" width="300" />
+                    <span class="label label-default">Weighted Score: 1100</span> 
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>
